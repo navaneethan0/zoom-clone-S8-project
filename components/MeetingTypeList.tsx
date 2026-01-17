@@ -67,7 +67,9 @@ const MeetingTypeList = () => {
 
   if (!client || !user) return <Loader />;
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || (typeof window !== 'undefined' ? window.location.origin : '');
+  const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL && !process.env.NEXT_PUBLIC_BASE_URL.includes('localhost'))
+    ? process.env.NEXT_PUBLIC_BASE_URL
+    : (typeof window !== 'undefined' ? window.location.origin : '');
   const meetingLink = `${baseUrl}/meeting/${callDetail?.id}`;
 
   return (

@@ -62,6 +62,9 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
 
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessage();
+  const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL && !process.env.NEXT_PUBLIC_BASE_URL.includes('localhost'))
+    ? process.env.NEXT_PUBLIC_BASE_URL
+    : (typeof window !== 'undefined' ? window.location.origin : '');
 
   return (
     <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
@@ -89,7 +92,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
             link={
               type === 'recordings'
                 ? (meeting as CallRecording).url
-                : `${process.env.NEXT_PUBLIC_BASE_URL || (typeof window !== 'undefined' ? window.location.origin : '')}/meeting/${(meeting as Call).id}`
+                : `${baseUrl}/meeting/${(meeting as Call).id}`
             }
             buttonIcon1={type === 'recordings' ? '/icons/play.svg' : undefined}
             buttonText={type === 'recordings' ? 'Play' : 'Start'}
