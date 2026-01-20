@@ -75,4 +75,4 @@ Ensure you have the following installed:
 This project was built as a learning journey, following the excellent tutorial by [JavaScript Mastery](https://youtu.be/R8CIO1DZ2b8?si=AjPKWHnBwRjXCbou) on YouTube. It served as a deep dive into Next.js 14, Stream SDK, and advanced full-stack development.
 
 ---
-Built with ❤️ by [Your Name/Github]
+Built with ❤️ by [Navaneetha Krishnan S P]
